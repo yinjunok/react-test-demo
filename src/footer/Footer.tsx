@@ -3,22 +3,17 @@ import * as React from 'react';
 export default class Footer extends React.Component {
   render() {
     return (
-      <div className="card" style={{ marginTop: 15 }}>
-        <ul className="nav nav-pills nav-fill">
+        <ul className="nav nav-pills nav-fill" style={{ marginTop: 15 }}>
           <li className="nav-item">
-            <a className="nav-link active" href="#">Active</a>
+            <button type="button" className="btn btn-primary btn-block">全部</button>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Link</a>
+            <button type="button" className="btn btn-light btn-block">未完成</button>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Link</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled={true}>Disabled</a>
+            <button type="button" className="btn btn-light btn-block">已完成</button>
           </li>
         </ul>
-      </div>
     );
   }
 }

@@ -1,0 +1,5 @@
+.list-panel {
+  height: 344px;
+  margin-top: 1em;
+  overflow-y: auto;
+}
