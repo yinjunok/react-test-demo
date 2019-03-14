@@ -3,3 +3,15 @@
   margin-top: 1em;
   overflow-y: auto;
 }
+
+.todo-label::after {
+  cursor: pointer;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.todo-label::before {
+  cursor: pointer;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}

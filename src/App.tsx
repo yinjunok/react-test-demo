@@ -3,6 +3,7 @@ import Input from './input/Input';
 import Footer from './footer/Footer';
 import ListPanel from './list-panel/ListPanel';
 import LogPanel from './log-panel/LogPanel';
+import { Consumer } from './store/Store';
 
 class App extends Component {
   render() {
@@ -16,7 +17,19 @@ class App extends Component {
         <div className="row justify-content-center">
           <div className="col-md-6">
           <Input />
-          <ListPanel />
+          <Consumer>
+            {
+              (todo) => (
+                <ListPanel
+                  show={todo.show}
+                  todoList={todo.todoList}
+                  update={todo.toggleStatus}
+                  deleted={todo.deleteTodo}
+                />
+              )
+            }
+          </Consumer>
+          
           <Footer />
           </div>
           <div className="col-md-5">
