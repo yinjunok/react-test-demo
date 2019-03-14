@@ -22,6 +22,7 @@ export default class ListPanel extends React.Component<IListPanel, {}> {
             showList.map((todo) => (
               <TodoItem
                 todo={todo}
+                key={todo.id}
                 deleteTodo={() => deleted(todo.id)}
                 toggleState={() => update(todo.id)}
               />

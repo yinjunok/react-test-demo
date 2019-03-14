@@ -28,7 +28,7 @@ export interface ITodo {
 // 8:19:30 增加 ***
 // 8:19:30 更改 *** 状态
 // 8:19:30 删除 ***
-export type TAction = 'add' | 'delete' | 'update';
+export type TAction = 'add' | 'deleted' | 'update';
 export interface ILog {
   timestamp: number;
   action: TAction;
@@ -86,9 +86,9 @@ class Store extends React.Component<{}, IStoreState> {
     const [ deletedTodo ] = todoList.filter((todo: ITodo) => todo.id === id);
 
     this.setState({
-      todoList: todoList.filter((todo: ITodo) => { todo.id !== id }),
+      todoList: todoList.filter((todo: ITodo) => todo.id !== id),
       logList: [
-        this.createLog(deletedTodo, 'delete'),
+        this.createLog(deletedTodo, 'deleted'),
         ...this.state.logList,
       ]
     });

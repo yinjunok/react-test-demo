@@ -7,7 +7,7 @@ export interface ITodoItemProps {
   toggleState: () => void;
 }
 
-const TodoItem = ({ todo,  deleteTodo, toggleState }: ITodoItemProps) => (
+const TodoItem: React.FunctionComponent<ITodoItemProps> = ({ todo,  deleteTodo, toggleState }) => (
   <li className="list-group-item d-flex justify-content-between align-items-center">
     <div className="custom-control custom-checkbox">
       <input type="checkbox" onChange={toggleState} className="custom-control-input" id={`todo-item-${todo.id}`} />

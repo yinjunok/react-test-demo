@@ -2,6 +2,17 @@
   height: 344px;
   margin-top: 1em;
   overflow-y: auto;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 2px;
+}
+
+.list-panel .list-group-item {
+  border-left: none;
+  border-right: none;
+}
+
+.list-panel .list-group-item:first-child {
+  border-top: none;
 }
 
 .todo-label::after {

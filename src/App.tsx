@@ -16,24 +16,47 @@ class App extends Component {
         </div>
         <div className="row justify-content-center">
           <div className="col-md-6">
-          <Input />
-          <Consumer>
-            {
-              (todo) => (
-                <ListPanel
-                  show={todo.show}
-                  todoList={todo.todoList}
-                  update={todo.toggleStatus}
-                  deleted={todo.deleteTodo}
-                />
-              )
-            }
-          </Consumer>
-          
-          <Footer />
+            <Consumer>
+              {
+                (todo) => (
+                  <Input
+                    addTodo={todo.addTodo}
+                  />
+                )
+              }
+            </Consumer>
+            
+            <Consumer>
+              {
+                (todo) => (
+                  <ListPanel
+                    show={todo.show}
+                    todoList={todo.todoList}
+                    update={todo.toggleStatus}
+                    deleted={todo.deleteTodo}
+                  />
+                )
+              }
+            </Consumer>
+            <Consumer>
+              {
+                (todo) => (
+                  <Footer
+                    show={todo.show}
+                    toggleShow={todo.toggleShow}
+                  />
+                )
+              }
+            </Consumer>
           </div>
           <div className="col-md-5">
-            <LogPanel />
+            <Consumer>
+              {
+                (todo) => (
+                  <LogPanel logList={todo.logList} />
+                )
+              }
+            </Consumer>
           </div>
         </div>
       </div>
