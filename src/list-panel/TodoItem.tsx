@@ -7,19 +7,19 @@ export interface ITodoItemProps {
   toggleState: () => void;
 }
 
-const completedStyle: React.CSSProperties = {
-  textDecoration: 'line-through',
-  color: '#6c757d'
-}
-
 const TodoItem: React.FunctionComponent<ITodoItemProps> = ({ todo,  deleteTodo, toggleState }) => (
   <li className="list-group-item d-flex justify-content-between align-items-center">
     <div className="custom-control custom-checkbox">
-      <input type="checkbox" onChange={toggleState} className="custom-control-input" id={`todo-item-${todo.id}`} />
+      <input
+        type="checkbox"
+        checked={todo.status}
+        onChange={toggleState}
+        id={`todo-item-${todo.id}`}
+        className="custom-control-input"
+      />
       <label 
         htmlFor={`todo-item-${todo.id}`}
-        className="custom-control-label todo-label"
-        style={todo.status === true ? completedStyle : {}}
+        className={`custom-control-label todo-label ${todo.status === true ? 'completed-todo' : ''}`}
       >
         {todo.content}
       </label>

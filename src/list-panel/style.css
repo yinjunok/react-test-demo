@@ -26,3 +26,8 @@
   top: 50%;
   transform: translate3d(0, -50%, 0);
 }
+
+.completed-todo {
+  text-decoration: line-through;
+  color: #6c757d;
+}
