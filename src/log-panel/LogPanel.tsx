@@ -22,7 +22,7 @@ const LogPanel: React.FunctionComponent<ILogPanelProps> = ({ logList }) => (
   <div className="card">
     <div className="card-header">
       操作日志
-        </div>
+    </div>
     <div className="log-list">
       <ul className="list-group list-group-flush">
         {

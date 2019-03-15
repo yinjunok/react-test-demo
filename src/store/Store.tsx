@@ -161,7 +161,6 @@ class Store extends React.Component<{}, IStoreState> {
     }
     return newLog;
   }
-
 }
 
 export {
