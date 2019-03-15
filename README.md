@@ -1,44 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 前端自动化测试案例
 
-## Available Scripts
+## 所用工具
 
-In the project directory, you can run:
+### [jest](https://jestjs.io/zh-Hans/)
 
-### `npm start`
+jest 是 FB 出的一个测试框架.  
+```js
+// 入门案例
+function add(a, b) {
+  return a + b;
+}
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+expect(add(1 + 2)).toBe(3);
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### [enzyme](https://airbnb.io/enzyme/)
 
-### `npm test`
+enzyme 是 airbnb 出的测试 React 应用的库. React 本身就搭配了测试工具: http://react.html.cn/docs/test-utils.html   
+但是提供的工具还是太少, 而且使用起来没有 enzyme 方便. jest + enzyme 搭配用来测试 React 更方便.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [Puppeteer](https://zhaoqize.github.io/puppeteer-api-zh_CN/#/)
 
-### `npm run build`
+Puppeteer 是一个 Node 库，它提供了一个高级 API 来通过 DevTools 协议控制 Chromium 或 Chrome。
+主要用来模拟用户的操作. 有了 jest 和 enzyme. 为什么还需要使用 Puppeteer 呢.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. 实际界面测试. enzyme 没有渲染界面的能力. 所以一些重交互的界面很难测试完全.
+2. 完整的测试用户的操作. 可以模拟用户的所有操作, 比如页面跳转, 表单填写. 这些能力都是 enzyme 不具备的.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+用来模拟用户操作还有其他库, 比如 [phantomjs](https://github.com/ariya/phantomjs) [selenium]https://github.com/SeleniumHQ/selenium 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+phantomjs 已经不再维护, 所以不用考虑.  
+selenium 是一个驱动各个浏览器的框架, chrome, firefox IE Edge, safari 主流的浏览器都可以用它来驱动, 而且可以支持多种语言比如 java, python, js.
+要更全面的测试各个浏览器兼容性, selenium 无疑是不二之选. 但是我没有使用它的原因是因为, 它的文档有点不大友好.
