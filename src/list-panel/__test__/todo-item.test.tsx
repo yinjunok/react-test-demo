@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import TodoItem from './TodoItem';
+import TodoItem from '../TodoItem';
 
 describe('渲染测试', () => {
   it('', () => {

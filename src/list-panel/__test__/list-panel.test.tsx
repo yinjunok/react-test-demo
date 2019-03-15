@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { mount, shallow } from 'enzyme';
-import ListPanel from './ListPanel';
-import ListItem from './TodoItem';
-import { ITodo } from '../store/Store';
+import ListPanel from '../ListPanel';
+import ListItem from '../TodoItem';
+import { ITodo } from '../../store/Store';
 
 function createTodoList(n: number): ITodo[] {
   const todoList: ITodo[] = [];

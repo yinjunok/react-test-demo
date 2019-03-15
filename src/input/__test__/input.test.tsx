@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import Input from './Input';
+import Input from '../Input';
 
 describe('渲染测试', () => {
   it('', () => {

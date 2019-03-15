@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 describe('渲染测试', () => {
   it('相应节点是否存在', () => {
