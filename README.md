@@ -33,3 +33,4 @@ phantomjs 已经不再维护, 所以不用考虑.
 selenium 是一个驱动各个浏览器的框架, chrome, firefox IE Edge, safari 主流的浏览器都可以用它来驱动, 而且可以支持多种语言比如 java, python, js.
 要更全面的测试各个浏览器兼容性, selenium 无疑是不二之选. 但是我没有使用它的原因是因为, 它的文档有点不大友好.
 
+
