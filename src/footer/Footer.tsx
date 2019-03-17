@@ -7,7 +7,7 @@ interface IFooterProps {
 }
 
 const Footer: React.FunctionComponent<IFooterProps> = ({ show, toggleShow }) => (
-  <ul className="nav nav-pills nav-fill" style={{ margin: '15px 0' }}>
+  <ul className="nav nav-pills nav-fill toggle-show" style={{ margin: '15px 0' }}>
     <li className="nav-item">
       <button
         type="button"

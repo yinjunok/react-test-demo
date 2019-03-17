@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import puppeteer, { ElementHandle } from 'puppeteer';
+import puppeteer from 'puppeteer';
+import { initPage } from '../../test-util';
 import ToTop from '../ToTop';
 
 jest.setTimeout(30000);
@@ -20,22 +21,6 @@ describe('test 渲染', () => {
     expect(toTop.exists('.show')).toBe(false);
   });
 });
-
-async function initPage(width: number = 360, height: number = 400) {
-  const browser = await puppeteer.launch({
-    executablePath: 'C:\\chromium\\chrome.exe',
-    headless: false,
-  });
-  const page = await browser.newPage();
-
-  page.setViewport({
-    width,
-    height,
-  });
-  await page.goto('http://localhost:3000/');
-
-  return { page, browser };
-}
 
 describe('test event handler', () => {
   it('页面载入时', async () => {
@@ -94,4 +79,31 @@ describe('test event handler', () => {
       browser.close();
     }
   });
+});
+
+describe('to up function test', () => {
+  it('滚动到顶部功能', async () => {
+    const { page, browser } = await initPage(360, 400);
+    try {
+      const top = await page.evaluate(() => {
+        window.scrollBy(0, document.body.scrollHeight);
+        
+        return document.documentElement.scrollTop;
+      });
+
+      expect(top).toBeGreaterThan(0);
+      const toTop = await page.$('.to-top');
+      if (toTop !== null) {
+        await toTop.click();
+
+        const top = await page.evaluate(() => {
+          return document.documentElement.scrollTop;
+        });
+
+        expect(top).toBe(0);
+      }
+    } finally {
+      await browser.close();
+    }
+  })
 });

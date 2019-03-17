@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './bootstrap.mini.css';
 import Input from './input/Input';
 import Footer from './footer/Footer';
 import ListPanel from './list-panel/ListPanel';

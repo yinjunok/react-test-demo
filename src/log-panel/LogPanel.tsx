@@ -19,7 +19,7 @@ const classType = {
 }
 
 const LogPanel: React.FunctionComponent<ILogPanelProps> = ({ logList }) => (
-  <div className="card">
+  <div className="card log-panel">
     <div className="card-header">
       操作日志
     </div>
